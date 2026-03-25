@@ -2,7 +2,7 @@ name: CI - Development
 
 on:
   push:
-    branches: [ dev ]
+    branches: [ main ]
 
   pull_request:
     branches: [ main ]
@@ -29,6 +29,15 @@ jobs:
 
       - name: Run Coverage
         run: npm run test
+
+      - name: Análise com SonarCloud 
+        uses: SonarSource/sonarcloud-github-action@v2 
+        with: 
+          args: > 
+            -Dsonar.projectKey=edutbx_testepipeline-js
+            -Dsonar.organization=edutbx
+        env: 
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   build:
 
@@ -81,3 +90,6 @@ jobs:
 
       - name: Rodar testes
         run: npm test
+
+
+
