@@ -1,6 +1,5 @@
 function soma(a, b) { 
 eval("console.log('teste')"); // linha problemática 
-const password = 12345
 return a + b; 
 } 
 
