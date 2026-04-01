@@ -21,6 +21,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 24
+
+      - name: Cache de dependências
+        uses: actions/cache@v4
+        with:
+          path:~/.npm
+          key:${{runner.os}}-node-${{ hashFiles('**/package-lock.json') }}
       
       - name: Instalar dependências
         run: npm install  
@@ -43,6 +49,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 24
+
+      - name: Cache de dependências
+        uses: actions/cache@v4
+        with:
+          path:~/.npm
+          key:${{runner.os}}-node-${{ hashFiles('**/package-lock.json') }}
       
       - name: Instalar dependências
         run: npm install
@@ -60,7 +72,7 @@ jobs:
             -Dsonar.projectKey=edutbx_testepipeline-js
             -Dsonar.organization=edutbx
         env: 
-          SONAR_TOKEN: ${{ 123 }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
  
 
@@ -77,6 +89,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 24
+
+      - name: Cache de dependências
+        uses: actions/cache@v4
+        with:
+          path:~/.npm
+          key:${{runner.os}}-node-${{ hashFiles('**/package-lock.json') }}
 
       - name: Instalar dependências
         run: npm install
@@ -109,6 +127,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 24
+
+      - name: Cache de dependências
+        uses: actions/cache@v4
+        with:
+          path:~/.npm
+          key:${{runner.os}}-node-${{ hashFiles('**/package-lock.json') }}
 
       - name: Instalar dependências
         run: npm install
