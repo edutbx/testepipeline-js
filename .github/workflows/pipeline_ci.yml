@@ -96,7 +96,7 @@ jobs:
         run: npm test
 
       - name: Subir Ambiente de teste 
-        run: docker compose up -de
+        run: docker compose up -d
       
       - name: Validar Comunicação (Ping)
         run: docker compose exec -T calculadora-app ping -c 1 servico-vizinho
